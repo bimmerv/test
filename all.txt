@@ -14,9 +14,6 @@ find . -name watcherCrncRateUpdater.class.php | xargs du -abch
 Замена из куска:
 perl -p -e 's/(shows_............)_done.dat/mv $1_done.dat $1.dat/'
 
-офисный айпи
-134.249.155.67
-
 Еще обрезка sed'ом начало:
 find /home -type d -name "*nmstec*" | sed -e 's|/home/nmsb-03/||g'
 
