@@ -1,0 +1,44 @@
+Массовое переименование файлов:
+find /каталог -exec rename 's/текст, который надо убрать//g' {} \;
+
+Поиск файлов, старше 30 дней:
+find . -name "*statsposting*.eml" -mtime +30
+
+Просмотр каталога, из которого запускали процесс:
+/proc/$PID/environ хранит путь
+lsof тоже
+
+Поиск файла с выводом его размера:
+find . -name watcherCrncRateUpdater.class.php | xargs du -abch
+
+Замена из куска:
+perl -p -e 's/(shows_............)_done.dat/mv $1_done.dat $1.dat/'
+
+офисный айпи
+134.249.155.67
+
+Еще обрезка sed'ом начало:
+find /home -type d -name "*nmstec*" | sed -e 's|/home/nmsb-03/||g'
+
+Perl'ом обрезаем ненужное вконце:
+ cat "Документ без назви 1" | perl -pi -e 's|(.+)IDENTIFIED BY PASSWORD.+|$1|g'
+ 
+Поиск файлов, измененных за последние сутки: 
+ find . -type f -name ".htaccess" -daystart -mtime 1
+ 
+ Поиск всех файлов и удаление из папок "temp":
+ find . -type d -name "temp" -exec find {} -name "*" \; | xargs rm
+ 
+ Пофиксить локаль:
+ locale - смотрим, какие используются
+ locale-gen en_US.UTF8
+ dpkg-reconfigure locales
+ export LC_ALL=en_US.UTF-8
+ 
+ printf "\e[?2004l"
+ 
+ /usr/share/mc/syntax/php.syntax 
+ вконце между двумя ? ? убрать пробел
+
+// Сделать симлинки на все файлы afs_click* в папке:
+for i in afs_click*; do ln -s /DATA1/mysql/fortunaaff/$i /DATA0/mysql/fortunaaff/; done
